@@ -17,7 +17,7 @@ public class Recipe {
     private String directions;
 
     @Enumerated(value = EnumType.STRING)
-     private Difficulty difficulty;
+    private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
@@ -29,6 +29,9 @@ public class Recipe {
     private Notes notes;
 
     @ManyToMany
+    @JoinTable(name = "recipe_category"
+            , joinColumns = @JoinColumn(name = "recipe_id")
+            , inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories;
 
     public Long getId() {
