@@ -1,4 +1,4 @@
-package guru.springframework.domain;
+package guru.springframework.domains;
 
 import javax.persistence.*;
 
@@ -11,6 +11,7 @@ public class Notes {
 
     @OneToOne
     private Recipe recipe;
+    @Lob
     private String recipeNotes;
 
     public Long getId() {
